@@ -4,6 +4,7 @@ import data from './data';
 import {Feather} from '@expo/vector-icons'
 import Stories from './stories'
 import Constants from 'expo-constants';
+import Article from './Article';
 
 const INSTAGRAM_LOGO = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg";
 
@@ -16,10 +17,12 @@ export default function Instagram() {
                 <View style={styles.stories}>
                     <Stories stories={data.stories} profile={data.profile} />
                 </View>
+                <Article item={item} />
                 </>
             )
         } 
         else {
+            <Article item={item} />
             return;
         }
     }

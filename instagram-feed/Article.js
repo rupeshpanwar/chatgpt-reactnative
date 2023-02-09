@@ -1,15 +1,15 @@
 import data from './data'
 import React from 'react'
 import { StyleSheet, View, Text , Image,
-Touchable , TextInput, Alert } from 'react-native'
+TouchableOpacity , TextInput, Alert } from 'react-native'
 import {Feather} from '@expo/vector-icons'
 
 
-export default function Article({items}){
+export default function Article({item}){
 
     return (
         <View style={StyleSheet.article}>
-            <View style={style.header}>
+            <View style={styles.header}>
             <View style={styles.user}>
                 <TouchableOpacity>
                     <Image source={item.avatar} style={styles.avatar} />
@@ -31,17 +31,17 @@ export default function Article({items}){
 
                 <View style={styles.action}>
                     <View style={styles.actionLeft}>
-                        <TouchableOpacity style={styles.actionButtpm}>
+                        <TouchableOpacity style={styles.actionButton}>
                             <Feather name="heart" size={24} />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.actionButtpm}>
+                        <TouchableOpacity style={styles.actionButton}>
                             <Feather name="message-circle" size={24} />
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.actionButtpm}>
+                        <TouchableOpacity style={styles.actionButton}>
                             <Feather name="send" size={24} />
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.actionButtpm}>
+                        <TouchableOpacity style={styles.actionButton}>
                             <Feather name="bookmark" size={24} />
                         </TouchableOpacity>
                         </View>

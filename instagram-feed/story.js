@@ -9,7 +9,7 @@ export default function Story({avatar, name, isCreateStory=false, isSeen}){
                 <View 
                    style={[
                     styles.avatarBorder, {
-                        borderColor: isCategory
+                        borderColor: isCreateStory
                         ? "transparent"
                         : isSeen
                         ? "rgba(0,0,0,0,.0975)"
@@ -21,12 +21,13 @@ export default function Story({avatar, name, isCreateStory=false, isSeen}){
                 {
                     isCreateStory && (
                         <View style={styles.plusIcon}>
-                        <Feather name="pulse" size={14} color="#fff" />
-                        {name}
+                        <Feather name="plus" size={14} color="#fff" />
                         </View>
                     )}
                   </View>
-                  <Text numbeofLines={1} style={styles.name}></Text>
+                  <Text numbeofLines={1} style={styles.name}>
+                    {name}
+                  </Text>
                 </View>
             </TouchableOpacity>
         )
@@ -41,17 +42,18 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     user: {
-      width: '100%',
-      paddingHorizontal: 20,
+      width: 80,
+      paddingHorizontal: 4,
     },
     avatarBorder: {
-      width: 56,
-      height: 56,
-      borderRadius: 28,
-      borderWidth: 4,
-      borderColor: 'white',
-      margin: 10,
-      alignSelf: 'center',
+      width: 50,
+      height: 50,
+      borderRadius: 25,
+      borderWidth: 1,
+      margin: 4,
+      marginBottom: 8,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     avatar: {
       width: 50,
@@ -64,19 +66,19 @@ const styles = StyleSheet.create({
       alignSelf: 'center',
       bottom: 0,
       right: 0,
-      backgroundColor: '#ddd',
-      width: 30,
-      height: 30,
-      borderRadius: 15,
+      backgroundColor: 'blue',
+      width: 20,
+      height: 20,
+      borderRadius: 10,
       justifyContent: 'center',
       alignItems: 'center',
     },
-    names: {
+    name: {
       textAlign: 'center',
-      fontSize: 20,
-      lineHeight: 20,
-      color: '#333',
-      maxWidth: '100%',
+      fontSize: 12,
+      lineHeight: 16,
+      color: 'black',
+      maxWidth: 64,
     },
   });
   

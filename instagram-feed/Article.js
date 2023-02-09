@@ -58,61 +58,67 @@ export default function Article({item}){
 
 const styles = StyleSheet.create({
     article: {
-      flex: 1,
-      backgroundColor: "#fff",
-      alignItems: "center",
-      marginVertical: 10,
+      marginBottm: 15
     },
     header: {
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
       paddingHorizontal: 16,
-      width: "100%",
+      height: 60
     },
     user: {
       flexDirection: "row",
       alignItems: "center"
     },
     avatar: {
-      width: 40,
-      height: 40,
-      borderRadius: 20,
-      marginRight: 10,
+      width: 32,
+      height: 32,
+      borderRadius: 20
     },
     name: {
-      marginLeft: 8,
+        textAlign: 'center',
+        lineHeight: 14,
+        color: '#262626',
+        marginLeft: 12,
       fontWeight: "bold",
-      color: "#000"
+      fontSize: 12,
     },
     image: {
       width: "100%",
-      height: 400
+      height: null,
+      aspectRatio: 1,
+      resizeMode: 'contain',
+      backgroundColor: 'red',
+      margin: 0,
+      padding: 0
     },
     action: {
-      paddingHorizontal: 16,
-      paddingVertical: 8,
       flexDirection: "row",
-      alignItems: "center"
+      alignItems: "center",
+      justifyContent: "space-between",
+      marginTop: 4,
+      paddingHorizontal: 8
     },
     actionLeft: {
-      flexDirection: "row"
+      flexDirection: "row",
+      justifyContent: "space-between",
     },
     actionButton: {
       marginRight: 16
     },
     info: {
-      paddingHorizontal: 16,
-      paddingVertical: 8,
-      flexDirection: "row",
-      justifyContent: "space-between"
+      paddingHorizontal: 15
     },
     likes: {
       fontWeight: "bold",
-      color: "#000"
+      color: "#262626",
+      marginBottom: 8
     },
     commentCount: {
-      color: "#000"
+      color: "gray",
+      fontSize: 10,
+      marginBottom: 5
     }
   });
   

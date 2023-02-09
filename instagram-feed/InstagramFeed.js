@@ -22,8 +22,8 @@ export default function Instagram() {
             )
         } 
         else {
-            <Article item={item} />
-            return;
+            
+            return <Article item={item} />;
         }
     }
 

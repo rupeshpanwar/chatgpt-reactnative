@@ -1,5 +1,5 @@
 import data from './data'
-import React from 'react'
+import React,{useState} from 'react'
 import { StyleSheet, View, Text , Image,
 TouchableOpacity , TextInput, Alert } from 'react-native'
 import {Feather} from '@expo/vector-icons'
@@ -7,6 +7,7 @@ import {Feather} from '@expo/vector-icons'
 
 export default function Article({item}){
 
+    const [likes,setLike] = useState(data.articles.find(article => article.id === item.id).likes)
     return (
         <View style={StyleSheet.article}>
             <View style={styles.header}>
@@ -48,7 +49,7 @@ export default function Article({item}){
                 </View>
 
             <View style={styles.info}>
-                <Text style={styles.likes}>likes</Text>
+                <Text style={styles.likes}>{likes} likes</Text>
                 <Text style={styles.commentCount}>view all comments</Text>
             </View>
         </View>

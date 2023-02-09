@@ -113,10 +113,11 @@ const styles = StyleSheet.create({
     likes: {
       fontWeight: "bold",
       color: "#262626",
-      marginBottom: 8
+      marginBottom: 6,
+      marginTop: 6
     },
     commentCount: {
-      color: "gray",
+      color: 'gray',
       fontSize: 10,
       marginBottom: 5
     }

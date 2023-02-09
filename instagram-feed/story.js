@@ -12,7 +12,7 @@ export default function Story({avatar, name, isCreateStory=false, isSeen}){
                         borderColor: isCreateStory
                         ? "transparent"
                         : isSeen
-                        ? "rgba(0,0,0,0,.0975)"
+                        ? "rgba(0,0,0,0.0975)" // corrected the typo, previously was 0.975
                         : "#c73191",
                     },
                 ]}
@@ -25,7 +25,7 @@ export default function Story({avatar, name, isCreateStory=false, isSeen}){
                         </View>
                     )}
                   </View>
-                  <Text numbeofLines={1} style={styles.name}>
+                  <Text numberOfLines={1} style={styles.name}>
                     {name}
                   </Text>
                 </View>
@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
       paddingHorizontal: 4,
     },
     avatarBorder: {
-      width: 50,
-      height: 50,
+      width: 54,
+      height: 54,
       borderRadius: 25,
       borderWidth: 1,
       margin: 4,
@@ -81,4 +81,3 @@ const styles = StyleSheet.create({
       maxWidth: 64,
     },
   });
-  

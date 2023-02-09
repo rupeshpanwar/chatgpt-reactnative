@@ -54,3 +54,65 @@ export default function Article({items}){
         </View>
     )
 }
+
+
+const styles = StyleSheet.create({
+    article: {
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      marginVertical: 10,
+    },
+    header: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      paddingHorizontal: 16,
+      width: "100%",
+    },
+    user: {
+      flexDirection: "row",
+      alignItems: "center"
+    },
+    avatar: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      marginRight: 10,
+    },
+    name: {
+      marginLeft: 8,
+      fontWeight: "bold",
+      color: "#000"
+    },
+    image: {
+      width: "100%",
+      height: 400
+    },
+    action: {
+      paddingHorizontal: 16,
+      paddingVertical: 8,
+      flexDirection: "row",
+      alignItems: "center"
+    },
+    actionLeft: {
+      flexDirection: "row"
+    },
+    actionButton: {
+      marginRight: 16
+    },
+    info: {
+      paddingHorizontal: 16,
+      paddingVertical: 8,
+      flexDirection: "row",
+      justifyContent: "space-between"
+    },
+    likes: {
+      fontWeight: "bold",
+      color: "#000"
+    },
+    commentCount: {
+      color: "#000"
+    }
+  });
+  

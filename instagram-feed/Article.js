@@ -1,5 +1,5 @@
 import data from './data'
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { StyleSheet, View, Text , Image,
 TouchableOpacity , TextInput, Alert } from 'react-native'
 import {Feather} from '@expo/vector-icons'
@@ -15,11 +15,18 @@ function getInitialState(item) {
     
 export default function Article({item}){
 
-    const [likes, setLikes] = useState(getInitialState(item).likes);
-    const [commentCount, setCommentCount] = useState(getInitialState(item).commentCount);
+    const initialState = getInitialState(item);
+    const [likes, setLikes] = useState(initialState.likes);
+    const [commentCount, setCommentCount] = useState(initialState.commentCount);
+    const [comment, setComment] = useState('')
     const [isLiked,setIsLiked] = useState(false)
 
-    function handleComment(){
+
+    useEffect(() => {
+        console.log(comment)
+    })
+    
+    const handleComment = () =>{
         Alert.prompt('Write a comment', '', (text) => {
         setComment(text);
         setCommentCount(prevCount => prevCount + 1);
@@ -28,6 +35,7 @@ export default function Article({item}){
 
     return (
         <View style={StyleSheet.article}>
+     
             <View style={styles.header}>
             <View style={styles.user}>
                 <TouchableOpacity>

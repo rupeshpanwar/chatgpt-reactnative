@@ -8,7 +8,8 @@ import {Feather} from '@expo/vector-icons'
 export default function Article({item}){
 
     const [likes,setLikes] = useState(data.articles.find(article => article.id === item.id).likes)
-
+    const [commentCount, setCommentCount] = useState(
+        data.articles.find(article => article.id === item.id).commentCount)
     const [isLiked,setIsLiked] = useState(false)
 
     return (
@@ -63,7 +64,7 @@ export default function Article({item}){
 
             <View style={styles.info}>
                 <Text style={styles.likes}>{likes} likes</Text>
-                <Text style={styles.commentCount}>view all comments</Text>
+                <Text style={styles.commentCount}>view all {commentCount}comments</Text>
             </View>
         </View>
     )

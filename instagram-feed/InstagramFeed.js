@@ -5,11 +5,18 @@ import {Feather} from '@expo/vector-icons'
 import Stories from './stories'
 import Constants from 'expo-constants';
 import Article from './Article';
+import { Camera } from 'expo-camera';
+import React,{useState} from 'react';
 
 const INSTAGRAM_LOGO = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg";
 
 
+
 export default function Instagram() {
+
+    const [showCamera,setShowCamera] = useState(false);
+    const [cameraType,setCameraType] = useState(Camera.Constants.Type.back);
+
     function renderItem({item,index}){
         if(index === 0){
             return (
@@ -33,7 +40,15 @@ export default function Instagram() {
             <StatusBar style='dark' />
             <View style={styles.header}>
                 <TouchableOpacity>
-                    <Feather name="camera" size={24} />
+                    <Feather name="camera" size={24} 
+                    onPress={() => {
+                        setShowCamera(!showCamera);
+                        setCameraType(cameraType === Camera.Constants.Type.back ?
+                        Camera.Constants.Type.front:
+                        Camera.Constants.Type.back
+                            );
+                    }}
+                    />
                 </TouchableOpacity> 
 
                 <Image source={{uri:INSTAGRAM_LOGO}} style={styles.logo} />
@@ -47,7 +62,19 @@ export default function Instagram() {
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id.toString()}
                     showsVerticalScrollIndicator={false}
-            />    
+            />  
+
+              {
+                showCamera && (
+                    <Camera style={styles.camera} type={cameraType}>
+                        <View style={styles.cameraContainer}>
+                            <TouchableOpacity onPress={() => setShowCamera(false)}>
+                                <Feather name="x" size={24} color="white" /> 
+                            </TouchableOpacity>
+                        </View>
+                    </Camera>
+                )
+              }
             </SafeAreaView>
     );
 }

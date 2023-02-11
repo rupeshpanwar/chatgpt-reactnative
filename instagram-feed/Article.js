@@ -7,7 +7,10 @@ import {Feather} from '@expo/vector-icons'
 
 export default function Article({item}){
 
-    const [likes,setLike] = useState(data.articles.find(article => article.id === item.id).likes)
+    const [likes,setLikes] = useState(data.articles.find(article => article.id === item.id).likes)
+
+    const [isLiked,setIsLiked] = useState(false)
+
     return (
         <View style={StyleSheet.article}>
             <View style={styles.header}>
@@ -32,8 +35,18 @@ export default function Article({item}){
 
                 <View style={styles.action}>
                     <View style={styles.actionLeft}>
-                        <TouchableOpacity style={styles.actionButton}>
-                            <Feather name="heart" size={24} />
+                        <TouchableOpacity style={styles.actionButton}
+                            onPress={() => {
+                                setIsLiked(!isLiked);
+                                if(isLiked){
+                                    setLikes(prevLikes => prevLikes - 1)
+                                } else{
+                                    setLikes(prevLikes => prevLikes + 1)
+                                }
+                            }}
+                        >
+                            <Feather name="heart" 
+                            color={isLiked ? 'red' : 'black'} size={24} />
                         </TouchableOpacity>
 
                         <TouchableOpacity style={styles.actionButton}>

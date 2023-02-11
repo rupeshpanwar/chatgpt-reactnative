@@ -19,6 +19,13 @@ export default function Article({item}){
     const [commentCount, setCommentCount] = useState(getInitialState(item).commentCount);
     const [isLiked,setIsLiked] = useState(false)
 
+    function handleComment(){
+        Alert.prompt('Write a comment', '', (text) => {
+        setComment(text);
+        setCommentCount(prevCount => prevCount + 1);
+        });
+        };
+
     return (
         <View style={StyleSheet.article}>
             <View style={styles.header}>
@@ -57,7 +64,8 @@ export default function Article({item}){
                             color={isLiked ? 'red' : 'black'} size={24} />
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.actionButton}>
+                        <TouchableOpacity style={styles.actionButton}
+                        onPress={handleComment}>
                             <Feather name="message-circle" size={24} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.actionButton}>
